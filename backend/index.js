@@ -1,7 +1,7 @@
 import express from "express";
 import { PORT, mongoDbUrl } from "./config.js";
 import mongoose from "mongoose";
-import { Book } from "./models/bookModel.js";
+import cors from "cors";
 import booksRoute from "./routes/bookroutes.js";
 
 const app = express();
@@ -11,19 +11,19 @@ const app = express();
 // app.use(cors());
 
 //option 2 :allow custom origin
-app.use(
-  cors({
-    origin: "http://localhost:5555",
-    method: ["GET", "POST", "PUT", "DELETE"],
-    allowHeaders: ["Content-Type"],
-  })
-);
+// app.use(
+//   cors({
+//     origin: "http://localhost:5555",
+//     method: ["GET", "POST", "PUT", "DELETE"],
+//     allowHeaders: ["Content-Type"],
+//   })
+// );
 
 app.use(express.json());
-app.get("/", (req, res) => {
-  console.log(req);
-  return res.status(234).send("mern");
-});
+// app.get("/", (req, res) => {
+//   console.log(req);
+//   return res.status(234).send("mern");
+// });
 
 app.use("/books", booksRoute);
 
