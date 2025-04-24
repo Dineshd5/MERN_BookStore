@@ -8,7 +8,7 @@ const app = express();
 
 //middleware for handling cors
 //option 1 : allow all origin with default cors(*)
-// app.use(cors());
+app.use(cors());
 
 //option 2 :allow custom origin
 // app.use(
